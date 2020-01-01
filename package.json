@@ -9,8 +9,8 @@
 		"type": "git",
 		"url": "git+https://github.com/botlist-space/api-server"
 	},
-	"author": "PassTheMayo",
-	"license": "MIT",
+	"author": "Jacob Gunther",
+	"license": "GPL-3.0-only",
 	"homepage": "https://api.botlist.space/",
 	"dependencies": {
 		"bluebird": "^3.5.5",
