@@ -1,0 +1,28 @@
+svg(width='572' height='210' viewBox='0 0 572 210' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+	clipPath#circle
+		circle(r='75' cx='105' cy='105')
+	if options.rounded
+		clipPath#corners
+			rect(x='0' y='0' width='572' height='210' rx='20')
+	if options.shadows
+		defs
+			filter#shadow(height='150%')
+				feGaussianBlur(in='SourceAlpha' stdDeviation='10')
+				feOffset(dx='0' dy='8' result='offsetblur')
+				feComponentTransfer
+					feFuncA(type='linear' slope='0.5')
+				feMerge
+					feMergeNode
+					feMergeNode(in='SourceGraphic')
+	rect(width='572' height='210' fill='#202020' clip-path=(options.rounded ? 'url(#corners)' : null))
+	if options.shadows
+		g(filter='url(#shadow)')
+			image(xlink:href='data:image/png;base64,' + avatar height='150' width='150' x='30' y='30' clip-path='url(#circle)')
+	else
+		image(xlink:href='data:image/png;base64,' + avatar height='150' width='150' x='30' y='30' clip-path='url(#circle)')
+	g(transform='translate(' + titlePosition.x + ', ' + titlePosition.y + ')')
+		path(fill='#ffffff' d=titlePath)
+	g(transform='translate(' + descriptionPosition.x + ', ' + descriptionPosition.y + ')')
+		path(fill='#aaaaaa' x='0' y='0' d=descriptionPath)
+	g(transform='translate(' + statsPosition.x + ', ' + statsPosition.y + ')')
+		path(fill='#757575' x='0' y='0' d=statsPath)
