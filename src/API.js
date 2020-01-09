@@ -37,6 +37,8 @@ class API {
 			res.set('Access-Control-Allow-Origin', '*');
 			res.set('Access-Control-Allow-Methods', 'GET, POST');
 
+			Logger.info((req.headers['cf-connecting-ip'] || req.headers['x-forwarded-for'] || req.ip) + ' [' + req.method + '] ' + req.url);
+
 			const body = [];
 
 			req.on('data', (data) => {
