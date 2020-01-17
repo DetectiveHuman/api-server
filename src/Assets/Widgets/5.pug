@@ -15,7 +15,7 @@ svg(width='572' height='210' viewBox='0 0 572 210' xmlns='http://www.w3.org/2000
 					feMergeNode
 					feMergeNode(in='SourceGraphic')
 	g(clip-path=(options.rounded ? 'url(#corners)' : null))
-		rect(width='572' height='210' fill='#202020')
+		rect(width='572' height='210' fill=(options.background ? '#' + options.background : '#202020'))
 		image(xlink:href='data:image/svg+xml;base64,' + background x='0' y='0' width='572' height='210')
 	if options.shadows
 		g(filter='url(#shadow)')

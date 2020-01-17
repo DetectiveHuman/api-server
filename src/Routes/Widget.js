@@ -24,7 +24,8 @@ class Widget extends Route {
 
 		this.widgetOptions = {
 			shadows: true,
-			rounded: false
+			rounded: false,
+			background: null
 		};
 
 		this.widgets = new Collection();
@@ -52,6 +53,10 @@ class Widget extends Route {
 
 			for (const key in req.query) {
 				if (key in this.widgetOptions) {
+					if (key === 'background') {
+						options[key] = req.query[key];
+						continue;
+					}
 					options[key] = req.query[key] === 'true' || req.query[key] === 'yes' || (req.query[key] === '' && !this.widgetOptions[key]);
 				}
 			}
